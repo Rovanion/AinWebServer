@@ -9,7 +9,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql:polisDevel"/>
+        <property name="url" value="jdbc:postgresql://adress:port/databas"/>
         <property name="username" value="${username}"/>
         <property name="password" value="${password}"/>
       </dataSource>

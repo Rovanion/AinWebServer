@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 public class READCase implements HttpHandler{
 
 	public void handleRequest(HttpServerExchange exchange) throws Exception {
-		SqlSession session = App.getSessionFactory().openSession();
+		SqlSession session = Main.getSessionFactory().openSession();
 		try {
 			CaseMapper caseMapper = session.getMapper(CaseMapper.class);
 			Case result = caseMapper.selectCase(1);

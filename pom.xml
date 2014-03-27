@@ -36,5 +36,10 @@
 		    <artifactId>postgresql</artifactId>
 		    <version>9.3-1101-jdbc41</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-migrations</artifactId>
+			<version>3.2.0</version>
+		</dependency>
     </dependencies>
 </project>
