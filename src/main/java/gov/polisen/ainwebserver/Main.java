@@ -11,15 +11,9 @@ import io.undertow.util.Methods;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.migration.DataSourceConnectionProvider;
-import org.apache.ibatis.migration.JavaMigrationLoader;
-import org.apache.ibatis.migration.operations.UpOperation;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -40,19 +34,11 @@ public class Main {
 		sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		try{
 			// Make sure all database migrations have been applied to the database.
-			new UpOperation().operate(new DataSourceConnectionProvider(sessionFactory
-					.getConfiguration().getEnvironment().getDataSource()),
-					new JavaMigrationLoader("gov.polisen.migrations"), null, null);
+			new MigrationHandler(sessionFactory.getConfiguration().getEnvironment()
+					.getDataSource().getConnection(),
+					MigrationHandler.Context.WITH_TEST_DATA);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Attempting to create nonexisting database!");
-			String url = sessionFactory.getConfiguration().getEnvironment()
-					.getDataSource().getConnection().getMetaData().getURL();
-			Connection c = DriverManager.getConnection(url.substring(0,
-					url.indexOf("/polisen")));
-			Statement statement = c.createStatement();
-			statement.executeUpdate("CREATE DATABASE polisen");
-			c.close();
 		}
 
 		// Start the Undertow server.
