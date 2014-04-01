@@ -14,10 +14,10 @@ CREATE TABLE Deployments (
 	author integer REFERENCES Users(id) NOT NULL,
 	modificationTime timestamp WITH TIME ZONE NOT NULL,
 	firstRevision int NOT NULL REFERENCES Deployments(id),
+	timeDeleted timestamp WITH TIME ZONE,
 	priority smallint,
-	longitude double NOT NULL,
-	latitude double NOT NULL,
-	timeDeleted timestamp,
+	longitude real NOT NULL,
+	latitude real NOT NULL,
 	description text
 );
 -- rollback drop table Deployments;
@@ -44,15 +44,18 @@ CREATE TABLE Cases (
 	caseID int NOT NULL,
 	author int REFERENCES Users(id) NOT NULL,
 	modificationTime timestamp WITH TIME ZONE NOT NULL,
-	firstRevision int NOT NULL REFERENCES Cases(id),
-	classification int NOT NULL REFERENCES Classification(id),
+	firstRevisionCaseID int NOT NULL,
+	firstRevisionDeviceID int NOT NULL,
+	timeDeleted timestamp WITH TIME ZONE,
+	classification int NOT NULL REFERENCES Classifications(id),
 	priority smallint,
-	longitude double,
-	latitude double,
+	longitude real,
+	latitude real,
 	status int NOT NULL REFERENCES Statuses(id),
 	owner int NOT NULL REFERENCES Users(id),
 	description text,
 	timeOfCrime timestamp WITH TIME ZONE,
+	FOREIGN KEY (firstRevisionCaseID, firstRevisionDeviceID) REFERENCES Cases(caseID, deviceID),
 	PRIMARY KEY (deviceID, caseID)
 );
 -- rollback drop table Cases;
