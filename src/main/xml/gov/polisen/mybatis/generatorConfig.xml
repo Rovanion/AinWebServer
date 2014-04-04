@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-  <classPathEntry location="/home/rovanion/source/AinWebServer/target/dependency/postgresql-9.3-1101-jdbc41.jar" />
+  <classPathEntry location=" !!! You must put the absolute path to the postgresql jdbc driver here !!! " />
   <context id="context1" targetRuntime="MyBatis3">
     <jdbcConnection driverClass="org.postgresql.Driver" 
         connectionURL="jdbc:postgresql://christian.cyd.liu.se:5432/polisen" 
