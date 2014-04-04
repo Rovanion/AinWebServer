@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="/home/rovanion/source/AinWebServer/target/dependency/postgresql-9.3-1101-jdbc41.jar" />
+  <context id="context1" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="org.postgresql.Driver" 
+        connectionURL="jdbc:postgresql://christian.cyd.liu.se:5432/polisen" 
+        userId="super" password="hninQJarIwIXm9ps" />
+    <javaModelGenerator targetPackage="gov.polisen.orm.models" targetProject="AinWebServer" />
+    <sqlMapGenerator targetPackage="gov.polisen.orm.maps" targetProject="AinWebServer" />
+    <javaClientGenerator targetPackage="gov.polisen.orm.clients" targetProject="AinWebServer" type="ANNOTATEDMAPPER" />
+    
+    <table tableName="Users" 
+        domainObjectName="User" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Statuses" 
+        domainObjectName="Status" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Priorities" 
+        domainObjectName="Priority" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Classifications" 
+        domainObjectName="Classification" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Deployments" 
+        domainObjectName="Deployment" 
+        enableUpdateByPrimaryKey="false"
+        enableDeleteByPrimaryKey="false"
+        enableUpdateByExample="false"
+        enableDeleteByExample="false" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Cases" 
+        domainObjectName="Case"
+        enableUpdateByPrimaryKey="false"
+        enableDeleteByPrimaryKey="false"
+        enableUpdateByExample="false"
+        enableDeleteByExample="false" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Images" 
+        domainObjectName="Image"
+        enableUpdateByPrimaryKey="false"
+        enableDeleteByPrimaryKey="false"
+        enableUpdateByExample="false"
+        enableDeleteByExample="false" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="DeploymentImages" 
+        domainObjectName="DeploymentImage"
+        enableUpdateByPrimaryKey="false"
+        enableDeleteByPrimaryKey="false"
+        enableUpdateByExample="false"
+        enableDeleteByExample="false" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="CaseImages" 
+        domainObjectName="CaseImage"
+        enableUpdateByPrimaryKey="false"
+        enableDeleteByPrimaryKey="false"
+        enableUpdateByExample="false"
+        enableDeleteByExample="false" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="Devices" 
+        domainObjectName="Device" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="PermissionsOnCases" 
+        domainObjectName="PermissionOnCase" >
+        <property name="immutable" value="true" />
+    </table>
+    
+    <table tableName="PermissionsOnDeployments" 
+        domainObjectName="PermissionOnDeployment" >
+        <property name="immutable" value="true" />
+    </table>
+    
+  </context>
+</generatorConfiguration>
