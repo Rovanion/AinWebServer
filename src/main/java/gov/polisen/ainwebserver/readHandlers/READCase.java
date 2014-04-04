@@ -1,5 +1,6 @@
-package gov.polisen.ainwebserver;
+package gov.polisen.ainwebserver.readHandlers;
 
+import gov.polisen.ainwebserver.Main;
 import gov.polisen.dataStructures.Case;
 import gov.polisen.dataStructures.CaseMapper;
 import io.undertow.server.HttpHandler;

@@ -21,7 +21,6 @@ public class MigrationHandler {
 			Liquibase liquibase = new Liquibase(
 					"src/main/sql/gov/polisen/migrations/changelog-master.xml",
 					new FileSystemResourceAccessor(), database);
-
 			liquibase.update(context.toString());
 		} catch (LiquibaseException e) {
 			// TODO: Do something useful here
