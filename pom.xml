@@ -13,6 +13,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    <build>
+		<finalName>AinWebServer</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/xml</directory>
+			</resource>
+			<resource>
+				<directory>src/main/sql</directory>
+			</resource>
+		</resources>
+	</build>
 
     <dependencies>
         <dependency>
