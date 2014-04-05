@@ -7,4 +7,8 @@ Setup
 ------------------------------
     $ git clone git@github.com:Rovanion/AinWebServer.git
     $ mvn eclipse:eclipse
-    Finally install m2e in eclipse and install a new Maven Project into eclipse.
+    $ mvn compile
+
+After this you can import the web server project into eclipse.
+
+The final step of the setup is to specify the database username and password in src/main/xml/gov/polisen/mybatis/mybatis-config.xml
