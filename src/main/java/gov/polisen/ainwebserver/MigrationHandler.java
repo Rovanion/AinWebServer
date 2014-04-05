@@ -26,6 +26,5 @@ public class MigrationHandler {
 			// TODO: Do something useful here
 			e.printStackTrace();
 		}
-
 	}
 }

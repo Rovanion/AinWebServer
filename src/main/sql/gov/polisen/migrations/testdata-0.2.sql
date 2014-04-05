@@ -36,3 +36,5 @@ INSERT INTO Deployments(id, author, firstRevision, status,
 	VALUES (1, 1, 1, 1,
 	1, 82.0, 42.2, 'Brandbomber i bromölla.');
 -- rollback DELETE FROM Cases WHERE description='Snatteri på skånskgatan, skåning misstänkt.'
+
+-- TODO: Add test data for the permissions and image tables.
