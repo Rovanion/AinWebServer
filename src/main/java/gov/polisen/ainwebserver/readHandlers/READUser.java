@@ -16,15 +16,20 @@ public class READUser implements HttpHandler {
 	public void handleRequest(HttpServerExchange exchange) throws Exception {
 		SqlSession session = Main.getSessionFactory().openSession();
 		try {
-			UserMapper userMapper = session.getMapper(UserMapper.class);
-			User result = userMapper.selectByPrimaryKey(1);
-			System.out.println(result);
-			Gson gson = new Gson();
 			exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/json");
-			exchange.getResponseSender().send(gson.toJson(result));
+			UserMapper userMapper = session.getMapper(UserMapper.class);
+			// The sixth characterand and forward should be the key.
+			User result = userMapper.selectByPrimaryKey(Integer.parseInt(exchange
+					.getRequestPath().substring(6)));
+
+			if (result == null)
+				exchange.setResponseCode(404);
+			else {
+				Gson gson = new Gson();
+				exchange.getResponseSender().send(gson.toJson(result));
+			}
 		} finally {
 			session.close();
 		}
-
 	}
 }
