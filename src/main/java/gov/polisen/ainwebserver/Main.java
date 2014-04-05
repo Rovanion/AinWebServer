@@ -1,9 +1,9 @@
 package gov.polisen.ainwebserver;
 
-import gov.polisen.ainwebserver.pathandlers.CREATE;
-import gov.polisen.ainwebserver.pathandlers.DELETE;
-import gov.polisen.ainwebserver.pathandlers.READ;
-import gov.polisen.ainwebserver.pathandlers.UPDATE;
+import gov.polisen.ainwebserver.pathHandlers.CREATE;
+import gov.polisen.ainwebserver.pathHandlers.DELETE;
+import gov.polisen.ainwebserver.pathHandlers.READ;
+import gov.polisen.ainwebserver.pathHandlers.UPDATE;
 import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;

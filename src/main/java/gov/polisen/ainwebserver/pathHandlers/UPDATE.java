@@ -1,4 +1,4 @@
-package gov.polisen.ainwebserver.pathandlers;
+package gov.polisen.ainwebserver.pathHandlers;
 
 import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.PathHandler;
