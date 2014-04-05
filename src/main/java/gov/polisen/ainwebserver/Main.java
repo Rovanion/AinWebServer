@@ -19,10 +19,11 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class Main {
 	// The following are classes extending PathHandler.
-	private static CREATE create = new CREATE();
-	private static READ read = new READ();
-	private static UPDATE update = new UPDATE();
-	private static DELETE delete = new DELETE();
+	private static CREATE							create			= new CREATE();
+	private static READ								read				= new READ();
+	private static UPDATE							update			= new UPDATE();
+	private static DELETE							delete			= new DELETE();
+
 
 	// The connection factory
 	private static SqlSessionFactory sessionFactory;

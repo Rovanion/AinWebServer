@@ -80,11 +80,13 @@
         <property name="immutable" value="true" />
     </table>
     
-    <table tableName="PermissionsOnCases" >
+    <table tableName="PermissionsOnCases"
+        domainObjectName="PermissionsOnCases" >
         <property name="immutable" value="true" />
     </table>
     
-    <table tableName="PermissionsOnDeployments" >
+    <table tableName="PermissionsOnDeployments"
+         domainObjectName="PermissionsOnCases" >
         <property name="immutable" value="true" />
     </table>
     

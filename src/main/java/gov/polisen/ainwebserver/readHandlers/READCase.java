@@ -1,8 +1,9 @@
 package gov.polisen.ainwebserver.readHandlers;
 
 import gov.polisen.ainwebserver.Main;
-import gov.polisen.dataStructures.Case;
-import gov.polisen.dataStructures.CaseMapper;
+import gov.polisen.orm.maps.CaseMapper;
+import gov.polisen.orm.models.Case;
+import gov.polisen.orm.models.CaseKey;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 
@@ -14,8 +15,9 @@ public class READCase implements HttpHandler{
 		SqlSession session = Main.getSessionFactory().openSession();
 		try {
 			CaseMapper caseMapper = session.getMapper(CaseMapper.class);
-			Case result = caseMapper.selectCase(1);
+			Case result = caseMapper.selectByPrimaryKey(new CaseKey(1, 1));
 			System.out.println(result);
+
 		} finally {
 			session.close();
 		}
