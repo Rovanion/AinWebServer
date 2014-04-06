@@ -33,14 +33,10 @@ public class Main {
 		String resource = "gov/polisen/mybatis/mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-		try{
-			// Make sure all database migrations have been applied to the database.
-			new MigrationHandler(sessionFactory.getConfiguration().getEnvironment()
-					.getDataSource().getConnection(),
-					MigrationHandler.Context.WITH_TEST_DATA);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// Make sure all database migrations have been applied to the database.
+		new MigrationHandler(sessionFactory.getConfiguration().getEnvironment()
+				.getDataSource().getConnection(),
+				MigrationHandler.Context.WITH_TEST_DATA);
 
 		// Start the Undertow server.
 		Undertow server = Undertow.builder()
