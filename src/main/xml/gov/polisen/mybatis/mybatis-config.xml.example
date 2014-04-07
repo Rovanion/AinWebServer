@@ -16,6 +16,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+    <package name="gov.polisen.orm.maps"/>
   </mappers>
 </configuration>
