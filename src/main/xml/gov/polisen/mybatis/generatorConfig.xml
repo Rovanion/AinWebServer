@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-  <classPathEntry location=" !!! You must put the absolute path to the postgresql jdbc driver here !!! " />
+  <properties resource="db.properties" />
+  <classPathEntry location="/home/rovanion/.m2/repository/org/postgresql/postgresql/9.3-1101-jdbc41/postgresql-9.3-1101-jdbc41.jar" />
   <context id="context1" targetRuntime="MyBatis3">
-    <jdbcConnection driverClass="org.postgresql.Driver" 
-        connectionURL="jdbc:postgresql://christian.cyd.liu.se:5432/polisen" 
-        userId="super" password="hninQJarIwIXm9ps" />
+    <jdbcConnection driverClass="${driver}" 
+        connectionURL="${url}" 
+        userId="${user}"
+        password="${password}" />
     <javaModelGenerator targetPackage="gov.polisen.orm.models" targetProject="AinWebServer" />
     <sqlMapGenerator targetPackage="gov.polisen.orm.maps" targetProject="AinWebServer" />
     <javaClientGenerator targetPackage="gov.polisen.orm.clients" targetProject="AinWebServer" type="ANNOTATEDMAPPER" />
@@ -81,12 +83,12 @@
     </table>
     
     <table tableName="PermissionsOnCases"
-        domainObjectName="PermissionsOnCases" >
+        domainObjectName="PermissionsOnCase" >
         <property name="immutable" value="true" />
     </table>
     
     <table tableName="PermissionsOnDeployments"
-         domainObjectName="PermissionsOnCases" >
+         domainObjectName="PermissionsOnDeployment" >
         <property name="immutable" value="true" />
     </table>
     

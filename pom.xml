@@ -23,6 +23,9 @@
 	    <resource>
 		<directory>src/main/sql</directory>
 	    </resource>
+	    <resource>
+		<directory>conf</directory>
+	    </resource>
 	</resources>
 	<plugins>
 	    <plugin>
