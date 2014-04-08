@@ -22,7 +22,13 @@
 		<directory>src/main/xml</directory>
 	    </resource>
 	    <resource>
-		<directory>src/main/sql</directory>
+		<directory>lib/main/java</directory>
+	    </resource>
+	    <resource>
+		<directory>lib/main/xml</directory>
+	    </resource>
+	    <resource>
+		<directory>lib/main/sql</directory>
 	    </resource>
 	    <resource>
 		<directory>conf</directory>
