@@ -13,7 +13,6 @@
     <javaClientGenerator targetPackage="gov.polisen.orm.clients" targetProject="AinWebServer" type="ANNOTATEDMAPPER" />
     
     
-    
     <table tableName="Users" 
         domainObjectName="User" >
         <property name="immutable" value="true" />
