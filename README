@@ -1,9 +1,0 @@
-AinWebServer
-============
-
-Polisens webbserver som tillhandahåller data från en MariaDB-server i JSON-format över HTTPS genom ett RESTful API.
-
-Generate eclipse project files
-------------------------------
-    $ mvn eclipse:eclipse
-
