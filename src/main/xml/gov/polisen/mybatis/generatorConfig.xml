@@ -6,11 +6,13 @@
   <context id="context1" targetRuntime="MyBatis3">
     <jdbcConnection driverClass="${driver}" 
         connectionURL="${url}" 
-        userId="${user}"
+        userId="${username}"
         password="${password}" />
     <javaModelGenerator targetPackage="gov.polisen.orm.models" targetProject="AinWebServer" />
     <sqlMapGenerator targetPackage="gov.polisen.orm.maps" targetProject="AinWebServer" />
     <javaClientGenerator targetPackage="gov.polisen.orm.clients" targetProject="AinWebServer" type="ANNOTATEDMAPPER" />
+    
+    
     
     <table tableName="Users" 
         domainObjectName="User" >
