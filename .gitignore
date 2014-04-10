@@ -1,6 +1,15 @@
+# Compiled java classes
 *.class
 
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.ear
+
+# The mvn compile folder
+target/
+
+# Eclipse project files
+.project
+.classpath
+.settings
