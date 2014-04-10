@@ -22,7 +22,6 @@ public class MigrationHandler {
 		Liquibase liquibase = new Liquibase(
 				"lib/main/sql/migrations/changelog-master.xml",
 				new FileSystemResourceAccessor(), database);
-		liquibase.dropAll();
 		liquibase.update(context.toString());
 	}
 }
