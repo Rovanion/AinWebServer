@@ -20,10 +20,10 @@ public class GetNewDevice extends JSONSender {
 		float latitude = Float.parseFloat(arg[4]);
 		Date now = new Date();
 
-		int id = mapper.insert(new Device(null, now, battery, longitude,
-				latitude));
+		Device d = new Device(null, now, battery, longitude, latitude);
+		mapper.insert(d);
 		session.commit();
 
-		return new Device(id, now, battery, longitude, latitude);
+		return d.getId();
 	}
 }
