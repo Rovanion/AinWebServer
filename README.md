@@ -36,4 +36,5 @@ Headless start
 --------------
 
 After this you can import the web server project into eclipse and start editing. Or you can start it with:
-    $ mvn exec:exec
+
+    $ mvn compile exec:java
