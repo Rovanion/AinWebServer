@@ -11,22 +11,24 @@ import io.undertow.util.Methods;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class Main {
-	// The following are classes extending PathHandler.
-	private static CREATE							create			= new CREATE();
-	private static READ								read				= new READ();
-	private static UPDATE							update			= new UPDATE();
-	private static DELETE							delete			= new DELETE();
-
-
 	// The connection factory
-	private static SqlSessionFactory sessionFactory;
+	private static SqlSessionFactory	sessionFactory;
+	// The following are classes extending PathHandler.
+	private static CREATE							create				= new CREATE();
+	private static READ								read					= new READ();
+	private static UPDATE							update				= new UPDATE();
+	private static DELETE							delete				= new DELETE();
+	private static Properties					webProperties	= new Properties();
+
 
 	public static void main(final String[] args) throws IOException, SQLException {
 		// Setup myBatis.
@@ -38,9 +40,13 @@ public class Main {
 				.getDataSource().getConnection(),
 				MigrationHandler.Context.WITH_TEST_DATA);
 
+		// Read the settings for the web server
+		webProperties.load(new URL("web.properties").openStream());
+		int port = Integer.parseInt(webProperties.getProperty("address", "80"));
+		String hostname = webProperties.getProperty("host", "localhost");
+
 		// Start the Undertow server.
-		Undertow server = Undertow.builder()
-				.addHttpListener(1337, "localhost")
+		Undertow server = Undertow.builder().addHttpListener(port, hostname)
 				.setHandler(new HttpHandler() {
 					public void handleRequest(HttpServerExchange exchange) throws Exception {
 						if(exchange.getRequestMethod() == Methods.GET)

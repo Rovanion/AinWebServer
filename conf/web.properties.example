@@ -1,0 +1,4 @@
+# The address for which the web server will answer requests to, for example 130.12.451.55.
+address=localhost
+# The port at which the web server will listen for requests, for example 80.
+port=1337
