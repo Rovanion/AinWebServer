@@ -1,6 +1,7 @@
 package gov.polisen.ainwebserver.pathHandlers;
 
 import gov.polisen.ainwebserver.readHandlers.GetCase;
+import gov.polisen.ainwebserver.readHandlers.GetCasesForUser;
 import gov.polisen.ainwebserver.readHandlers.GetClassification;
 import gov.polisen.ainwebserver.readHandlers.GetDeployment;
 import gov.polisen.ainwebserver.readHandlers.GetDevice;
@@ -14,13 +15,14 @@ import io.undertow.server.handlers.PathHandler;
 
 public class READ extends PathHandler {
 	@Override
-	public void handleRequest(HttpServerExchange exchange) throws Exception{
+	public void handleRequest(HttpServerExchange exchange) throws Exception {
 		super.addPrefixPath("/user", new GetUser());
 		super.addPrefixPath("/status", new GetStatus());
 		super.addPrefixPath("/priority", new GetPriority());
 		super.addPrefixPath("/classification", new GetClassification());
 		super.addPrefixPath("/deployment", new GetDeployment());
 		super.addPrefixPath("/case", new GetCase());
+		super.addPrefixPath("/casesForUser", new GetCasesForUser());
 
 		// TODO: Implement the get image http handlers.
 

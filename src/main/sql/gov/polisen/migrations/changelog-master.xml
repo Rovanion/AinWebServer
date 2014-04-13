@@ -8,4 +8,5 @@
   <include file="src/main/sql/gov/polisen/migrations/changelog-0.1.sql"/>
   <include file="src/main/sql/gov/polisen/migrations/changelog-0.2.sql"/>
   <include file="src/main/sql/gov/polisen/migrations/testdata-0.2.sql"/>
+  <include file="src/main/sql/gov/polisen/migrations/testdata-0.2.1.sql"/>
 </databaseChangeLog> 
