@@ -9,9 +9,9 @@ import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.Methods;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -41,9 +41,9 @@ public class Main {
 				MigrationHandler.Context.WITH_TEST_DATA);
 
 		// Read the settings for the web server
-		webProperties.load(new URL("web.properties").openStream());
-		int port = Integer.parseInt(webProperties.getProperty("address", "80"));
-		String hostname = webProperties.getProperty("host", "localhost");
+		webProperties.load(new FileInputStream("conf/web.properties"));
+		int port = Integer.parseInt(webProperties.getProperty("port", "80"));
+		String hostname = webProperties.getProperty("address", "localhost");
 
 		// Start the Undertow server.
 		Undertow server = Undertow.builder().addHttpListener(port, hostname)
