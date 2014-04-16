@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
-import liquibase.exception.LiquibaseException;
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -30,14 +28,17 @@ public class Main {
 	// The connection factory
 	private static SqlSessionFactory sessionFactory;
 
-	public static void main(final String[] args) throws IOException,
-			SQLException, LiquibaseException {
+	public static void main(final String[] args) throws IOException, SQLException {
+
+		float x = 10;
+		while (x --> 0) { // While x approaches 0
+			System.out.println(x);
+		}
 
 		// Setup myBatis.
 		String resource = "mybatis/mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-
 		// Make sure all database migrations have been applied to the database.
 		new MigrationHandler(sessionFactory.getConfiguration().getEnvironment()
 				.getDataSource().getConnection(),
@@ -47,8 +48,7 @@ public class Main {
 		Undertow server = Undertow.builder()
 				.addHttpListener(1337, "localhost")
 				.setHandler(new HttpHandler() {
-					public void handleRequest(HttpServerExchange exchange)
-							throws Exception {
+					public void handleRequest(HttpServerExchange exchange) throws Exception {
 						if(exchange.getRequestMethod() == Methods.GET)
 							read.handleRequest(exchange);
 						else if(exchange.getRequestMethod() == Methods.PUT)
