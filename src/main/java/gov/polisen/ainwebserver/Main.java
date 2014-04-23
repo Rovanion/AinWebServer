@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
+import liquibase.exception.LiquibaseException;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -28,9 +30,15 @@ public class Main {
 	// The connection factory
 	private static SqlSessionFactory sessionFactory;
 
-	public static void main(final String[] args) throws IOException, SQLException {
+	public static void main(final String[] args) throws IOException, SQLException, LiquibaseException {
+
+		float x = 10;
+		while (x --> 0) { // While x approaches 0
+			System.out.println(x);
+		}
+
 		// Setup myBatis.
-		String resource = "gov/polisen/mybatis/mybatis-config.xml";
+		String resource = "mybatis/mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		// Make sure all database migrations have been applied to the database.
