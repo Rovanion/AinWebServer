@@ -29,7 +29,12 @@ Configuration
 The final step of the setup is to specify the database driver, path,  username and password in conf/db.preferences:
 
     $ cp conf/db.preferences.example conf/db.preferences
-	$ editor conf/db.preferences
+    $ editor conf/db.preferences
+
+If you want to specify for what domain and at which port the web server runs, do the same thing for conf/web.properties.
+
+    $ cp conf/web.preferences.example conf/web.preferences
+    $ editor conf/web.preferences
 
 
 Headless start
