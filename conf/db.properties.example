@@ -1,0 +1,6 @@
+# For example org.postgresql.Driver
+driver=Enter your db driver here.
+# For example jdbc:postgresql://domain.com:5432/dbname
+url=Enter your database url here.
+username=Enter the user database user name here.
+password=And finally the password.
