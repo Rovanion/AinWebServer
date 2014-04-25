@@ -5,6 +5,7 @@ import gov.polisen.ainwebserver.readHandlers.GetCasesForUser;
 import gov.polisen.ainwebserver.readHandlers.GetClassification;
 import gov.polisen.ainwebserver.readHandlers.GetDeployment;
 import gov.polisen.ainwebserver.readHandlers.GetDevice;
+import gov.polisen.ainwebserver.readHandlers.GetNewDevice;
 import gov.polisen.ainwebserver.readHandlers.GetPerMissionsOnCase;
 import gov.polisen.ainwebserver.readHandlers.GetPermissionsOnDeployment;
 import gov.polisen.ainwebserver.readHandlers.GetPriority;
@@ -30,6 +31,8 @@ public class READ extends PathHandler {
 		super.addPrefixPath("/permissionsOnDeployment",
 				new GetPermissionsOnDeployment());
 		super.addPrefixPath("/permissionsOnCase", new GetPerMissionsOnCase());
+
+		super.addPrefixPath("/newDevice", new GetNewDevice());
 
 		super.handleRequest(exchange);
 	}

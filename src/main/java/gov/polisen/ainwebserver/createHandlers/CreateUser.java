@@ -6,7 +6,7 @@ import io.undertow.server.HttpServerExchange;
 
 import org.apache.ibatis.session.SqlSession;
 
-public class CREATEUser implements HttpHandler {
+public class CreateUser implements HttpHandler {
 
 	public void handleRequest(HttpServerExchange exchange) throws Exception {
 

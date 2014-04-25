@@ -14,18 +14,15 @@ public class MigrationHandler {
 		WITH_TEST_DATA, DEPLOYMENT
 	}
 
-	public MigrationHandler(Connection connection, Context context) {
-		try {
-			Database database = DatabaseFactory.getInstance()
+	public MigrationHandler(Connection connection, Context context)
+			throws LiquibaseException {
+
+		Database database = DatabaseFactory.getInstance()
 					.findCorrectDatabaseImplementation(
 							new JdbcConnection(connection));
-			Liquibase liquibase = new Liquibase(
-					"src/main/sql/gov/polisen/migrations/changelog-master.xml",
-					new FileSystemResourceAccessor(), database);
-			liquibase.update(context.toString());
-		} catch (LiquibaseException e) {
-			// TODO: Do something useful here
-			e.printStackTrace();
-		}
+		Liquibase liquibase = new Liquibase(
+				"lib/main/sql/migrations/changelog-master.xml",
+				new FileSystemResourceAccessor(), database);
+		liquibase.update(context.toString());
 	}
 }
