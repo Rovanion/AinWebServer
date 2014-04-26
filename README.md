@@ -4,16 +4,41 @@ AinWebServer
 Polisens webbserver som tillhandahåller data från en PostgreSQL-server i JSON-format över HTTPS genom ett RESTful API.
 
 Setup
-------------------------------
-    $ git clone git@github.com:Rovanion/AinWebServer.git
+-----
+
+First clone the source code to your computer along with it's submodules.
+
+    $ git clone --recursive git@github.com:Rovanion/AinWebServer.git
+
+### Import into eclipse with m2e
+
+Install the eclipse maven plugin called m2e either through Help -> Install New Software or Help -> Eclipse Marketplace and import the "AinWebServer" folder as a maven project. Do not import as a normal java project. If you do you must remove .classpath and .project before importing as a maven project again.
+
+
+### With terminal tools
+
     $ mvn eclipse:eclipse
-    $ mvn compile
+    $ mvn dependency:resolve -Dclassifier=javadoc
 
-The final step of the setup is to specify the database driver, path,  username and password in src/main/xml/gov/polisen/mybatis/mybatis-config.xml:
+After these commands you can import the folder "AinWebServer" as a normal Java project.
 
-    $ cp src/main/xml/gov/polisen/mybatis/mybatis-config.xml.example src/main/xml/gov/polisen/mybatis/mybatis-config.xml
-	$ editor src/main/xml/gov/polisen/mybatis/mybatis-config.xml
 
+Configuration
+-------------
+
+The final step of the setup is to specify the database driver, path,  username and password in conf/db.preferences:
+
+    $ cp conf/db.preferences.example conf/db.preferences
+    $ editor conf/db.preferences
+
+If you want to specify for what domain and at which port the web server runs, do the same thing for conf/web.properties.
+
+    $ cp conf/web.preferences.example conf/web.preferences
+    $ editor conf/web.preferences
+
+
+Headless start
+--------------
 
 After this you can import the web server project into eclipse and start editing. Or you can start it with:
 
