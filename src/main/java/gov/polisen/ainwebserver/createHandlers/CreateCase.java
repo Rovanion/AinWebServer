@@ -12,12 +12,12 @@ import gov.polisen.orm.models.Case;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 
-public class CREATECase implements HttpHandler {
+public class CreateCase implements HttpHandler {
 
 	public void handleRequest(HttpServerExchange exchange) throws Exception {
 		SqlSession session = Main.getSessionFactory().openSession();
 		CaseMapper mapper = session.getMapper(CaseMapper.class);
-		
+
 		try {
 			Gson gson = new Gson();
 			InputStream input = exchange.getInputStream();
@@ -28,8 +28,9 @@ public class CREATECase implements HttpHandler {
 			session.close();
 		}
 	}
+
 	static String convertStreamToString(java.io.InputStream is) {
-	    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-	    return s.hasNext() ? s.next() : "";
+		java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+		return s.hasNext() ? s.next() : "";
 	}
 }
