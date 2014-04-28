@@ -1,6 +1,6 @@
 package gov.polisen.ainwebserver.pathHandlers;
 
-import gov.polisen.ainwebserver.createHandlers.CreateUser;
+import gov.polisen.ainwebserver.createHandlers.*;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.PathHandler;
 
@@ -15,6 +15,7 @@ public class CREATE extends PathHandler{
 	@Override
 	public void handleRequest(HttpServerExchange exchange) throws Exception{
 		super.addPrefixPath("/user", new CreateUser());
+		super.addPrefixPath("/case", new CreateCase());
 		super.handleRequest(exchange);
 	}
 }
