@@ -22,13 +22,13 @@ public class GetCasesForUser extends JSONSender {
 		int uid = Integer.parseInt(exchange.getRequestPath().substring(14));
 
 		PermissionsOnCaseExample p = new PermissionsOnCaseExample();
-		p.or().andUseridEqualTo(uid);
+		p.or().andUserIdEqualTo(uid);
 		List<PermissionsOnCase> list = permissionMapper.selectByExample(p);
 
 		CaseExample ce = new CaseExample();
 		for (PermissionsOnCase permissionsOnCase : list) {
-			ce.or().andCaseidEqualTo(permissionsOnCase.getCaseid())
-					.andDeviceidEqualTo(permissionsOnCase.getDeviceid());
+			ce.or().andCaseIdEqualTo(permissionsOnCase.getCaseId())
+					.andDeviceIdEqualTo(permissionsOnCase.getDeviceId());
 		}
 
 		CaseMapper caseMapper = session.getMapper(CaseMapper.class);
