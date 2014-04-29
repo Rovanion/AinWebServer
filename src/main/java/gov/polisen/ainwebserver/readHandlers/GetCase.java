@@ -19,7 +19,8 @@ public class GetCase extends JSONSender implements HttpHandler {
 		int deviceID = Integer.parseInt(arg[2]);
 		int caseID = Integer.parseInt(arg[3]);
 
-		Case result = caseMapper.selectByPrimaryKey(new CaseKey(deviceID, caseID));
+		Case result = caseMapper.selectByPrimaryKey(new CaseKey(deviceID,
+				caseID));
 
 		return result;
 	}
