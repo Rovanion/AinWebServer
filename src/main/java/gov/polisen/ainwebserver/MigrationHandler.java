@@ -18,7 +18,8 @@ public class MigrationHandler {
 			throws LiquibaseException {
 
 		Database database = DatabaseFactory.getInstance()
-				.findCorrectDatabaseImplementation(new JdbcConnection(connection));
+					.findCorrectDatabaseImplementation(
+							new JdbcConnection(connection));
 		Liquibase liquibase = new Liquibase(
 				"lib/main/sql/migrations/changelog-master.xml",
 				new FileSystemResourceAccessor(), database);
