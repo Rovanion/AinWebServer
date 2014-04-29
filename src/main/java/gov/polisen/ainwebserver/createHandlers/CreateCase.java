@@ -15,6 +15,7 @@ import io.undertow.server.HttpServerExchange;
 public class CreateCase implements HttpHandler {
 
 	public void handleRequest(HttpServerExchange exchange) throws Exception {
+
 		SqlSession session = Main.getSessionFactory().openSession();
 		CaseMapper mapper = session.getMapper(CaseMapper.class);
 

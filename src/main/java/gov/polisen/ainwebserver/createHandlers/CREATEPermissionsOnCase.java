@@ -8,7 +8,6 @@ import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import gov.polisen.ainwebserver.Main;
 import gov.polisen.orm.maps.PermissionsOnCaseMapper;
-import gov.polisen.orm.models.Case;
 import gov.polisen.orm.models.PermissionsOnCase;
 
 public class CREATEPermissionsOnCase implements HttpHandler {
