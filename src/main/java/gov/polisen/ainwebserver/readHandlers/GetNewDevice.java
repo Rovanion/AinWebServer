@@ -19,8 +19,12 @@ public class GetNewDevice extends JSONSender {
 		float longitude = Float.parseFloat(arg[3]);
 		float latitude = Float.parseFloat(arg[4]);
 		Date now = new Date();
+		
+		String ip = exchange.getConnection().getPeerAddress().toString();
+		ip = ip.substring(1);
+		ip = ip.substring(0, ip.indexOf(':'));
 
-		Device d = new Device(null, now, battery, longitude, latitude, exchange.getConnection().getPeerAddress().toString());
+		Device d = new Device(null, now, battery, longitude, latitude, ip);
 		mapper.insert(d);
 		session.commit();
 
