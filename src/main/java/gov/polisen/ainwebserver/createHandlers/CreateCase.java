@@ -21,15 +21,18 @@ public class CreateCase implements HttpHandler {
 
 		try {
 			Gson gson = new Gson();
+			exchange.startBlocking();
 			InputStream input = exchange.getInputStream();
 			String inputString = convertStreamToString(input);
 			Case recievedCase = gson.fromJson(inputString, Case.class);
 			mapper.insert(recievedCase);
+			session.commit();
 		} finally {
 			session.close();
 		}
 	}
 
+	@SuppressWarnings("resource")
 	static String convertStreamToString(java.io.InputStream is) {
 		java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
 		return s.hasNext() ? s.next() : "";
