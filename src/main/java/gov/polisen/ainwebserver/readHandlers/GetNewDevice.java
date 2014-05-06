@@ -20,7 +20,8 @@ public class GetNewDevice extends JSONSender {
 		float latitude = Float.parseFloat(arg[4]);
 		Date now = new Date();
 
-		Device d = new Device(null, now, battery, longitude, latitude, exchange.getConnection().getPeerAddress().toString());
+		// exchange.getConnection().getPeerAddress().toString()
+		Device d = new Device(null, now, battery, longitude, latitude, null);
 		mapper.insert(d);
 		session.commit();
 
