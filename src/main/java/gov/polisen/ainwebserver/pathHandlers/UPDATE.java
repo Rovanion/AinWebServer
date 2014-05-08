@@ -6,6 +6,7 @@ import io.undertow.server.handlers.PathHandler;
 
 public class UPDATE extends PathHandler {
 
+	@Override
 	public void handleRequest(HttpServerExchange exchange) throws Exception {
 
 		super.addPrefixPath("/updateDevice", new UpdateDevice());
