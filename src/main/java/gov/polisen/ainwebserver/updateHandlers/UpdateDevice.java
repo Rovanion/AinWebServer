@@ -16,21 +16,22 @@ public class UpdateDevice implements HttpHandler {
 
 		SqlSession session = Main.getSessionFactory().openSession();
 		try {
-			
+
 			DeviceMapper mapper = session.getMapper(DeviceMapper.class);
 			String[] arg = exchange.getRequestPath().split("/");
-			
-			
 
 			Integer deviceID = Integer.parseInt(arg[2]);
 			short battery = Short.parseShort(arg[3]);
 			float longitude = Float.parseFloat(arg[4]);
 			float latitude = Float.parseFloat(arg[5]);
 			Date now = new Date();
-			
-			// kraschar om man skickar in ip= exchange.getConnection().getPeerAddress().toString()
+
+			String ip = exchange.getConnection().getPeerAddress().toString();
+			ip = ip.substring(1);
+			ip = ip.substring(0, ip.indexOf(':'));
+
 			Device d = new Device(deviceID, now, battery, longitude, latitude,
-					null);
+					ip);
 			mapper.updateByPrimaryKey(d);
 			session.commit();
 		} finally {
